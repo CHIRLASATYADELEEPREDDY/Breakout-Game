@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breakout Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="startMenu">
+    <h1>Breakout Game</h1>
+    <button onclick="startGame('easy')">Easy</button>
+    <button onclick="startGame('medium')">Medium</button>
+    <button onclick="startGame('hard')">Hard</button><br><br><br><br><br><br><br><br>
+     <p class="instruction">🎮 Move the paddle with your mouse pointer</p>
+  </div>
+
+  <!-- Score and Lives Display -->
+  <div id="info">
+    <span id="scoreDisplay">⭐️ Score: 0</span>
+    <span id="livesDisplay">💖 Lives: 1</span>
+  </div>
+
+  <!-- Game Canvas -->
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+  <button id="retryBtn" onclick="restartGame()">Retry</button>
+
+  <audio id="explosionSound" src="explosion.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

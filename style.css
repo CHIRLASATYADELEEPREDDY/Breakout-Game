@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('gameback.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#gameCanvas {
+  display: none;
+  background: #eee;
+  border: 2px solid #333;
+  margin-top: 20px;
+}
+
+#retryBtn {
+  display: none;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 22px;
+  background: #0095DD;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#retryBtn:hover {
+  background-color: #0077b6;
+}
+
+#startMenu {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#startMenu h1 {
+  font-size: 48px; /* increased title size */
+}
+
+#startMenu button {
+  margin: 10px;
+  padding: 14px 28px;
+  font-size: 22px; /* increased button text size */
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* 🎯 Enhanced Info Styling */
+#info {
+  display: none;
+  font-size: 22px; /* increased score/lives text size */
+  background-color: #e0f7ff;
+  color: black;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 2px solid #0095DD;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: fit-content;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* 🎮 Instruction Text Styling */
+.instruction {
+  font-size: 22px; /* increased instruction text size */
+  color: #00ffe1;
+  margin-bottom: 20px;
+  animation: blink 1.5s infinite;
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
