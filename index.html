@@ -11,7 +11,7 @@
     <button onclick="startGame('easy')">Easy</button>
     <button onclick="startGame('medium')">Medium</button>
     <button onclick="startGame('hard')">Hard</button><br><br><br><br><br><br><br><br>
-     <p class="instruction">🎮 Move the paddle with your mouse pointer</p>
+    <p class="instruction">🎮 Move the paddle with your mouse pointer</p>
   </div>
 
   <!-- Score and Lives Display -->
@@ -23,9 +23,17 @@
   <!-- Game Canvas -->
   <canvas id="gameCanvas" width="800" height="400"></canvas>
 
+  <!-- Retry Button -->
   <button id="retryBtn" onclick="restartGame()">Retry</button>
 
+  <!-- Explosion Sound -->
   <audio id="explosionSound" src="explosion.mp3" preload="auto"></audio>
+
+  <!-- 🎉 Message for Win -->
+  <div id="winMessage" class="message">🎉 Congratulations! You Win!</div>
+
+  <!-- 💀 Message for Game Over -->
+  <div id="gameOverMessage" class="message">💀 Game Over!</div>
 
   <script src="script.js"></script>
 </body>
