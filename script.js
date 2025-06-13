@@ -1,6 +1,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const explosionSound = document.getElementById("explosionSound");
+const winMessage = document.getElementById("winMessage");
+const gameOverMessage = document.getElementById("gameOverMessage");
 
 let ballRadius = 10;
 let x, y, dx, dy;
@@ -41,7 +43,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 }
 
 document.addEventListener("mousemove", mouseMoveHandler);
-document.addEventListener("touchmove", touchMoveHandler, { passive: false }); // 👈 Added for mobile
+document.addEventListener("touchmove", touchMoveHandler, { passive: false });
 
 function mouseMoveHandler(e) {
   const relativeX = e.clientX - canvas.getBoundingClientRect().left;
@@ -51,7 +53,7 @@ function mouseMoveHandler(e) {
 }
 
 function touchMoveHandler(e) {
-  e.preventDefault(); // Stop page scroll
+  e.preventDefault();
   const touch = e.touches[0];
   const rect = canvas.getBoundingClientRect();
   const relativeX = touch.clientX - rect.left;
@@ -96,8 +98,11 @@ function collisionDetection() {
           updateInfo();
 
           if (score === brickRowCount * brickColumnCount) {
-            alert("🎉 YOU WIN!");
-            showStartMenu();
+            stopGameLoop();
+            winMessage.style.display = "block";
+            setTimeout(() => {
+              showStartMenu();
+            }, 2000);
           }
         }
       }
@@ -145,8 +150,10 @@ function drawSplash() {
         draw();
       }, 1000);
     } else {
-      alert("💀 Game Over!");
-      showStartMenu();
+      gameOverMessage.style.display = "block";
+      setTimeout(() => {
+        showStartMenu();
+      }, 2000);
     }
   } else {
     animationId = requestAnimationFrame(drawSplash);
@@ -199,6 +206,8 @@ function resetBall() {
 }
 
 function restartGame() {
+  winMessage.style.display = "none";
+  gameOverMessage.style.display = "none";
   score = 0;
   splash = false;
   splashRadius = 0;
@@ -218,6 +227,8 @@ function restartGame() {
 }
 
 function startGame(level) {
+  winMessage.style.display = "none";
+  gameOverMessage.style.display = "none";
   difficulty = level;
   document.getElementById("startMenu").style.display = "none";
   document.getElementById("gameCanvas").style.display = "block";
@@ -242,4 +253,8 @@ function showStartMenu() {
   document.getElementById("startMenu").style.display = "block";
   document.getElementById("gameCanvas").style.display = "none";
   document.getElementById("info").style.display = "none";
+
+  // 🔁 Hide messages when returning to menu
+  document.getElementById("winMessage").style.display = "none";
+  document.getElementById("gameOverMessage").style.display = "none";
 }
