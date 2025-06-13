@@ -80,3 +80,27 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+
+/* ✅ Game Over and Win Messages */
+.message {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: white;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 24px 48px;
+  border-radius: 20px;
+  z-index: 100;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
